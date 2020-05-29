@@ -1,5 +1,6 @@
 package com.example.xo
 
+import android.app.Application
 import android.nfc.Tag
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.xo.databinding.GameFragmentBinding
 
@@ -35,8 +37,6 @@ class GameFragment : Fragment() {
         binding.i20.setOnClickListener{view:View->viewModel.dropIn(view)}
         binding.i21.setOnClickListener{view:View->viewModel.dropIn(view)}
         binding.i22.setOnClickListener{view:View->viewModel.dropIn(view)}
-
-
         return binding.root
     }
 
@@ -44,5 +44,6 @@ class GameFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
     }
+
 
 }
