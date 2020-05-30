@@ -1,6 +1,7 @@
 package com.example.xo
 
 import android.app.Application
+import android.graphics.drawable.Drawable
 import android.nfc.Tag
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -21,36 +22,59 @@ import kotlinx.coroutines.delay
 
 class GameFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = GameFragment()
-    }
     private lateinit var binding: GameFragmentBinding
     private lateinit var viewModel: GameViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding=DataBindingUtil.inflate(inflater,R.layout.game_fragment,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
-        binding.gameViewModel=viewModel
+        binding.gameViewModel = viewModel
         // need to change this
-        binding.i00.setOnClickListener{view:View->viewModel.dropIn(view)}
-        binding.i01.setOnClickListener{view:View->viewModel.dropIn(view)}
-        binding.i02.setOnClickListener{view:View->viewModel.dropIn(view)}
-        binding.i10.setOnClickListener{view:View->viewModel.dropIn(view)}
-        binding.i11.setOnClickListener{view:View->viewModel.dropIn(view)}
-        binding.i12.setOnClickListener{view:View->viewModel.dropIn(view)}
-        binding.i20.setOnClickListener{view:View->viewModel.dropIn(view)}
-        binding.i21.setOnClickListener{view:View->viewModel.dropIn(view)}
-        binding.i22.setOnClickListener{view:View->viewModel.dropIn(view)}
-        viewModel.gameOver.observe(viewLifecycleOwner, Observer { gameOver-> if (gameOver) gameFinished() })
+        binding.i00.setOnClickListener { view: View -> viewModel.dropIn(view) }
+        binding.i01.setOnClickListener { view: View -> viewModel.dropIn(view) }
+        binding.i02.setOnClickListener { view: View -> viewModel.dropIn(view) }
+        binding.i10.setOnClickListener { view: View -> viewModel.dropIn(view) }
+        binding.i11.setOnClickListener { view: View -> viewModel.dropIn(view) }
+        binding.i12.setOnClickListener { view: View -> viewModel.dropIn(view) }
+        binding.i20.setOnClickListener { view: View -> viewModel.dropIn(view) }
+        binding.i21.setOnClickListener { view: View -> viewModel.dropIn(view) }
+        binding.i22.setOnClickListener { view: View -> viewModel.dropIn(view) }
+        viewModel.gameOver.observe(
+            viewLifecycleOwner,
+            Observer { gameOver -> if (gameOver) gameFinished() })
+        binding.playAgain.setOnClickListener { playAgain() }
+        viewModel.incre.observe(viewLifecycleOwner, Observer { increment ->
+            if (increment >= 9) {
+                gameFinished()
+                binding.winnerText.text = "ITS A DRAW"
+            }
+        })
         return binding.root
     }
-    private fun gameFinished(){
-        binding.winnerText.text="The Winner is"+viewModel.winner.toString()
-        binding.winnerText.visibility=View.VISIBLE
-        binding.playAgain.visibility=View.VISIBLE
-        Log.i("eef","TRIGGEREDDDDDDDDDD")
+
+    private fun gameFinished() {
+        binding.winnerText.text = "The Winner is" + viewModel.winner.value.toString()
+        binding.winnerText.visibility = View.VISIBLE
+        binding.playAgain.visibility = View.VISIBLE
+        Log.i("eef", "TRIGGEREDDDDDDDDDD")
+    }
+
+    private fun playAgain() {
+        binding.winnerText.visibility = View.INVISIBLE
+        binding.playAgain.visibility = View.INVISIBLE
+        viewModel.incre.value = 0
+        for (i in 0..binding.gridLayout.childCount) {
+            var counter: ImageView? = (binding.gridLayout.getChildAt(i)) as? ImageView
+            counter?.setImageDrawable(null)
+
+        }
+        for (i in 0..(viewModel.gameState.size - 1)) {
+            viewModel.gameState[i] = 2
+        }
+        viewModel.gameActive.value = true
+        viewModel.activePlayer = 0
     }
 
 }

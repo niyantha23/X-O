@@ -11,7 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 
 class GameViewModel : ViewModel() {
     var activePlayer: Int = 0
-
+    val incre=MutableLiveData<Int>()
     //0:X   1:O  2: empty
     var gameState = arrayOf<Int>(2, 2, 2, 2, 2, 2, 2, 2, 2)
     val winningPositions = arrayOf(
@@ -26,16 +26,22 @@ class GameViewModel : ViewModel() {
     )
        val gameActive=MutableLiveData<Boolean>()
        val gameOver=MutableLiveData<Boolean>()
-       var winner:String=""
+       var winner=MutableLiveData<String>()
+    val gameDrawn=MutableLiveData<Boolean>()
     init {
         gameActive.value=true
         gameOver.value=false
+        gameDrawn.value=false
+        winner.value=""
+        incre.value=0
     }
     fun dropIn(view: View) {
+
         var counter: ImageView = view as ImageView
         var tappedCounter: Int = Integer.parseInt(counter.getTag().toString())
         if (gameState[tappedCounter]==2 && gameActive.value!!){
-        gameState[tappedCounter] = activePlayer
+            incre.value=incre.value?.plus(1)
+            gameState[tappedCounter] = activePlayer
         counter.setTranslationY((-1500).toFloat())
         if (activePlayer == 0) {
             counter.setImageResource(R.drawable.x1)
@@ -44,26 +50,22 @@ class GameViewModel : ViewModel() {
             counter.setImageResource(R.drawable.o)
             activePlayer = 0
         }
-        counter.animate().translationYBy((1500).toFloat()).rotation((360).toFloat())
-            .setDuration(600)
+        counter.animate().translationYBy((1500).toFloat()).rotation((360).toFloat()).setDuration(600)
         for (winningPos in winningPositions) {
             if (gameState[winningPos[0]] == gameState[winningPos[1]] && gameState[winningPos[1]] == gameState[winningPos[2]] && gameState[winningPos[1]] != 2) {
                 gameActive.value=false
-
                 if(activePlayer==0){
-                    winner="O"
+                    winner.value="O"
                 }else
                     if (activePlayer==1){
-                        winner="X"
+                        winner.value="X"
                     }
-                Log.i("dd", winner+"WONNNNNNNN")
+                Log.i("dd", winner.value+"WONNNNNNNN")
                 gameOver.value=true
             }
-
+        }
         }
 
-
-    }
   }
 
 }
