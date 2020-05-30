@@ -2,8 +2,10 @@ package com.example.xo
 
 import android.util.Log
 import android.view.View
+import android.widget.GridLayout
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -22,11 +24,17 @@ class GameViewModel : ViewModel() {
         arrayOf(0, 4, 8),
         arrayOf(2, 4, 6)
     )
-       var gameActive:Boolean=true
+       val gameActive=MutableLiveData<Boolean>()
+       val gameOver=MutableLiveData<Boolean>()
+       var winner:String=""
+    init {
+        gameActive.value=true
+        gameOver.value=false
+    }
     fun dropIn(view: View) {
         var counter: ImageView = view as ImageView
         var tappedCounter: Int = Integer.parseInt(counter.getTag().toString())
-        if (gameState[tappedCounter]==2 && gameActive){
+        if (gameState[tappedCounter]==2 && gameActive.value!!){
         gameState[tappedCounter] = activePlayer
         counter.setTranslationY((-1500).toFloat())
         if (activePlayer == 0) {
@@ -40,25 +48,22 @@ class GameViewModel : ViewModel() {
             .setDuration(600)
         for (winningPos in winningPositions) {
             if (gameState[winningPos[0]] == gameState[winningPos[1]] && gameState[winningPos[1]] == gameState[winningPos[2]] && gameState[winningPos[1]] != 2) {
-                gameActive=false
-                var winner:String=""
+                gameActive.value=false
+
                 if(activePlayer==0){
                     winner="O"
                 }else
                     if (activePlayer==1){
                         winner="X"
                     }
-
-
-
-
                 Log.i("dd", winner+"WONNNNNNNN")
-
-
+                gameOver.value=true
             }
+
         }
 
 
     }
   }
+
 }
