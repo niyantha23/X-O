@@ -31,16 +31,6 @@ class GameFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
         binding.gameViewModel = viewModel
-        // need to change this
-        binding.i00.setOnClickListener { view: View -> viewModel.dropIn(view) }
-        binding.i01.setOnClickListener { view: View -> viewModel.dropIn(view) }
-        binding.i02.setOnClickListener { view: View -> viewModel.dropIn(view) }
-        binding.i10.setOnClickListener { view: View -> viewModel.dropIn(view) }
-        binding.i11.setOnClickListener { view: View -> viewModel.dropIn(view) }
-        binding.i12.setOnClickListener { view: View -> viewModel.dropIn(view) }
-        binding.i20.setOnClickListener { view: View -> viewModel.dropIn(view) }
-        binding.i21.setOnClickListener { view: View -> viewModel.dropIn(view) }
-        binding.i22.setOnClickListener { view: View -> viewModel.dropIn(view) }
         viewModel.gameOver.observe(
             viewLifecycleOwner,
             Observer { gameOver -> if (gameOver) gameFinished() })
@@ -64,7 +54,7 @@ class GameFragment : Fragment() {
     private fun playAgain() {
         binding.winnerText.visibility = View.INVISIBLE
         binding.playAgain.visibility = View.INVISIBLE
-        viewModel.incre.value = 0
+        viewModel._incre.value = 0
         for (i in 0..binding.gridLayout.childCount) {
             var counter: ImageView? = (binding.gridLayout.getChildAt(i)) as? ImageView
             counter?.setImageDrawable(null)
@@ -73,7 +63,7 @@ class GameFragment : Fragment() {
         for (i in 0..(viewModel.gameState.size - 1)) {
             viewModel.gameState[i] = 2
         }
-        viewModel.gameActive.value = true
+        viewModel._gameActive.value = true
         viewModel.activePlayer = 0
     }
 

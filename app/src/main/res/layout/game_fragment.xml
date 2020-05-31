@@ -35,6 +35,7 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:tag="0"
+            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
             />
 
         <ImageView
@@ -44,6 +45,8 @@
             android:layout_margin="10dp"
             android:layout_marginLeft="17dp"
             android:tag="1"
+            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+
             />
 
         <ImageView
@@ -52,7 +55,9 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:layout_marginLeft="12dp"
-            android:tag="2" />
+            android:tag="2"
+        android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+            />
 
         <ImageView
             android:id="@+id/i10"
@@ -60,7 +65,9 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:layout_marginTop="13dp"
-            android:tag="3" />
+            android:tag="3"
+            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+            />
 
         <ImageView
             android:id="@+id/i11"
@@ -69,7 +76,9 @@
             android:layout_margin="10dp"
             android:layout_marginLeft="17dp"
             android:layout_marginTop="13dp"
-            android:tag="4" />
+            android:tag="4"
+            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+            />
 
         <ImageView
             android:id="@+id/i12"
@@ -78,7 +87,9 @@
             android:layout_margin="10dp"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="13dp"
-            android:tag="5" />
+            android:tag="5"
+            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+            />
 
         <ImageView
             android:id="@+id/i20"
@@ -86,7 +97,9 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:layout_marginTop="16dp"
-            android:tag="6" />
+            android:tag="6"
+            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+            />
 
         <ImageView
             android:id="@+id/i21"
@@ -95,7 +108,9 @@
             android:layout_margin="10dp"
             android:layout_marginLeft="17dp"
             android:layout_marginTop="16dp"
-            android:tag="7" />
+            android:tag="7"
+            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+            />
 
         <ImageView
             android:id="@+id/i22"
@@ -104,7 +119,9 @@
             android:layout_margin="10dp"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="16dp"
-            android:tag="8" />
+            android:tag="8"
+            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+            />
 
 
     </GridLayout>
