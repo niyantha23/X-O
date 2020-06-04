@@ -1,5 +1,7 @@
 package com.example.xo
 
+import android.app.Application
+import android.content.Context
 import android.util.Log
 import android.view.View
 import android.widget.GridLayout
@@ -8,8 +10,14 @@ import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProviders
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 
-class GameViewModel : ViewModel() {
+class GameViewModel() : ViewModel() {
+//    private var viewModelJob = Job()
+//    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     var activePlayer: Int = 0
     val _incre = MutableLiveData<Int>()
     val incre: LiveData<Int>
@@ -34,16 +42,19 @@ get() = _gameActive
 val gameOver:LiveData<Boolean>
     get() = _gameOver
     var winner = MutableLiveData<String>()
+ var playerX:String=""
+    var playerO:String=""
 
     init {
         _gameActive.value = true
         _gameOver.value = false
         winner.value = ""
         _incre.value = 0
+
     }
 
-    fun dropIn(view: View) {
 
+    fun dropIn(view: View) {
         var counter: ImageView = view as ImageView
         var tappedCounter: Int = Integer.parseInt(counter.getTag().toString())
         if (gameState[tappedCounter] == 2 && gameActive.value!!) {
@@ -63,10 +74,10 @@ val gameOver:LiveData<Boolean>
                 if (gameState[winningPos[0]] == gameState[winningPos[1]] && gameState[winningPos[1]] == gameState[winningPos[2]] && gameState[winningPos[1]] != 2) {
                     _gameActive.value = false
                     if (activePlayer == 0) {
-                        winner.value = "O"
+                        winner.value = playerO
                     } else
                         if (activePlayer == 1) {
-                            winner.value = "X"
+                            winner.value = playerX
                         }
                     Log.i("dd", winner.value + "WONNNNNNNN")
                     _gameOver.value = true
@@ -75,5 +86,22 @@ val gameOver:LiveData<Boolean>
         }
 
     }
+
+    fun getPlayerX(player:String){
+        playerX=player
+        Log.i("eeeeee",playerX)
+    }
+    fun getPlayerO(player:String){
+        playerO=player
+        Log.i("ddddd",playerO)
+
+    }
+//    fun insertIntoDatabase(){
+//
+//    }
+//    override fun onCleared() {
+//        super.onCleared()
+//        viewModelJob.cancel()
+//    }
 
 }

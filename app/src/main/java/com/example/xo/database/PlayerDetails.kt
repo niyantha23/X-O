@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 @Entity( tableName="leader_board_table")
 data class PlayerDetails(
     @PrimaryKey(autoGenerate = true)
-    var Id: Long = 0L,
+    var Id: Int= 0,
     @ColumnInfo(name = "name")
     var playerName:String="",
     @ColumnInfo(name = "won")

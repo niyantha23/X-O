@@ -11,12 +11,12 @@
         android:label="StartFragment"
         tools:layout="@layout/start_fragment">
         <action
-            android:id="@+id/action_startFragment_to_gameFragment"
-            app:destination="@id/gameFragment"
-            app:popUpTo="@id/startFragment" />
-        <action
             android:id="@+id/action_startFragment_to_leaderBoardFragment"
             app:destination="@id/leaderBoardFragment"
+            app:popUpTo="@id/startFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_getName"
+            app:destination="@id/getName"
             app:popUpTo="@id/startFragment" />
     </fragment>
     <fragment
@@ -34,4 +34,13 @@
         android:name="com.example.xo.LeaderBoardFragment"
         android:label="LeaderBoardFragment"
         tools:layout="@layout/leader_board_fragment"/>
+    <fragment
+        android:id="@+id/getName"
+        android:name="com.example.xo.GetNameFragment"
+        android:label="GetName"
+        tools:layout="@layout/get_name_fragment">
+        <action
+            android:id="@+id/action_getName_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
 </navigation>

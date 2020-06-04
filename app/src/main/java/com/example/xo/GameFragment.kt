@@ -23,16 +23,22 @@ import kotlinx.coroutines.delay
 class GameFragment : Fragment() {
     private lateinit var binding: GameFragmentBinding
     private lateinit var viewModel: GameViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
-        viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
+
+        viewModel  = ViewModelProviders.of(activity!!).get(GameViewModel::class.java)
         binding.gameViewModel = viewModel
         viewModel.gameOver.observe(
             viewLifecycleOwner,
-            Observer { gameOver -> if (gameOver) gameFinished() })
+            Observer { gameOver -> if (gameOver)
+                gameFinished()
+                 })
         binding.playAgain.setOnClickListener { playAgain() }
         viewModel.incre.observe(viewLifecycleOwner, Observer { increment ->
             if (increment >= 9) {
@@ -48,6 +54,7 @@ class GameFragment : Fragment() {
         binding.winnerText.visibility = View.VISIBLE
         binding.playAgain.visibility = View.VISIBLE
         Log.i("eef", "TRIGGEREDDDDDDDDDD")
+        //insertIntoDatabase()
     }
 
     private fun playAgain() {

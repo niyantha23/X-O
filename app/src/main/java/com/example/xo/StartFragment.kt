@@ -27,7 +27,7 @@ class StartFragment : Fragment() {
         binding.viewLeaderboardButton.setOnClickListener { view:View->
             view.findNavController().navigate(StartFragmentDirections.actionStartFragmentToLeaderBoardFragment())
         }
-        binding.playGameButton.setOnClickListener { view:View-> view.findNavController().navigate(StartFragmentDirections.actionStartFragmentToGameFragment()) }
+        binding.playGameButton.setOnClickListener { view:View-> view.findNavController().navigate(StartFragmentDirections.actionStartFragmentToGetName()) }
         return binding.root
     }
 
