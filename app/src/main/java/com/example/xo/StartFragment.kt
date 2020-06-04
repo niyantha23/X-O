@@ -24,9 +24,6 @@ class StartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding : StartFragmentBinding =DataBindingUtil.inflate(inflater,R.layout.start_fragment,container,false)
-        binding.viewLeaderboardButton.setOnClickListener { view:View->
-            view.findNavController().navigate(StartFragmentDirections.actionStartFragmentToLeaderBoardFragment())
-        }
         binding.playGameButton.setOnClickListener { view:View-> view.findNavController().navigate(StartFragmentDirections.actionStartFragmentToGetName()) }
         return binding.root
     }

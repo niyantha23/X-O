@@ -8,9 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
-import androidx.room.Room
-import com.example.xo.database.PlayerDatabase
-import com.example.xo.database.PlayerDetails
 import com.example.xo.databinding.GetNameFragmentBinding
 
 

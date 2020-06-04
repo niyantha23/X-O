@@ -11,10 +11,6 @@
         android:label="StartFragment"
         tools:layout="@layout/start_fragment">
         <action
-            android:id="@+id/action_startFragment_to_leaderBoardFragment"
-            app:destination="@id/leaderBoardFragment"
-            app:popUpTo="@id/startFragment" />
-        <action
             android:id="@+id/action_startFragment_to_getName"
             app:destination="@id/getName"
             app:popUpTo="@id/startFragment" />
@@ -23,17 +19,7 @@
         android:id="@+id/gameFragment"
         android:name="com.example.xo.GameFragment"
         android:label="GameFragment"
-        tools:layout="@layout/game_fragment">
-        <action
-            android:id="@+id/action_gameFragment_to_leaderBoardFragment"
-            app:destination="@id/leaderBoardFragment"
-            app:popUpTo="@id/startFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/leaderBoardFragment"
-        android:name="com.example.xo.LeaderBoardFragment"
-        android:label="LeaderBoardFragment"
-        tools:layout="@layout/leader_board_fragment"/>
+        tools:layout="@layout/game_fragment"/>
     <fragment
         android:id="@+id/getName"
         android:name="com.example.xo.GetNameFragment"
