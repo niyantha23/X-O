@@ -69,7 +69,7 @@ val gameOver:LiveData<Boolean>
                 activePlayer = 0
             }
             counter.animate().translationYBy((1500).toFloat()).rotation((360).toFloat())
-                .setDuration(600)
+                .setDuration(400)
             for (winningPos in winningPositions) {
                 if (gameState[winningPos[0]] == gameState[winningPos[1]] && gameState[winningPos[1]] == gameState[winningPos[2]] && gameState[winningPos[1]] != 2) {
                     _gameActive.value = false
@@ -96,12 +96,6 @@ val gameOver:LiveData<Boolean>
         Log.i("ddddd",playerO)
 
     }
-//    fun insertIntoDatabase(){
-//
-//    }
-//    override fun onCleared() {
-//        super.onCleared()
-//        viewModelJob.cancel()
-//    }
+
 
 }

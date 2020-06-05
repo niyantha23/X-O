@@ -41,6 +41,12 @@ class GameFragment : Fragment() {
                  })
         binding.playAgain.setOnClickListener { playAgain() }
         viewModel.incre.observe(viewLifecycleOwner, Observer { increment ->
+            if(increment%2==0){
+                binding.turnImage.setImageResource(R.drawable.x1)
+            }
+            else if(increment%2!=0) {
+                binding.turnImage.setImageResource(R.drawable.o)
+            }
             if (increment >= 9) {
                 gameFinished()
                 binding.winnerText.text = "ITS A DRAW"
@@ -50,9 +56,11 @@ class GameFragment : Fragment() {
     }
 
     private fun gameFinished() {
-        binding.winnerText.text = "The Winner is" + viewModel.winner.value.toString()
+        binding.winnerText.text = "The Winner is " + viewModel.winner.value.toString()
         binding.winnerText.visibility = View.VISIBLE
         binding.playAgain.visibility = View.VISIBLE
+        binding.turnImage.visibility=View.INVISIBLE
+        binding.turnText.visibility=View.INVISIBLE
         Log.i("eef", "TRIGGEREDDDDDDDDDD")
         //insertIntoDatabase()
     }
@@ -60,6 +68,8 @@ class GameFragment : Fragment() {
     private fun playAgain() {
         binding.winnerText.visibility = View.INVISIBLE
         binding.playAgain.visibility = View.INVISIBLE
+        binding.turnImage.visibility=View.VISIBLE
+        binding.turnText.visibility=View.VISIBLE
         viewModel._incre.value = 0
         for (i in 0..binding.gridLayout.childCount) {
             var counter: ImageView? = (binding.gridLayout.getChildAt(i)) as? ImageView
