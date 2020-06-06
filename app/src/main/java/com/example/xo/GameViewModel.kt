@@ -79,11 +79,17 @@ xWon.value=0
                 if (gameState[winningPos[0]] == gameState[winningPos[1]] && gameState[winningPos[1]] == gameState[winningPos[2]] && gameState[winningPos[1]] != 2) {
                     _gameActive.value = false
                     if (activePlayer == 0) {
+                        if (playerO!="")
                         winner.value = playerO
+                        else
+                            winner.value="O"
                         oWon.value=oWon.value?.plus(1)
                     } else
                         if (activePlayer == 1) {
+                            if (playerX!="")
                             winner.value = playerX
+                            else
+                                winner.value="X"
                             xWon.value=xWon.value?.plus(1)
                         }
                     Log.i("dd", winner.value + "WONNNNNNNN")
