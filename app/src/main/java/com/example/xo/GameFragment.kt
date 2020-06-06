@@ -24,6 +24,7 @@ class GameFragment : Fragment() {
     private lateinit var binding: GameFragmentBinding
     private lateinit var viewModel: GameViewModel
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -62,7 +63,7 @@ class GameFragment : Fragment() {
         binding.turnImage.visibility=View.INVISIBLE
         binding.turnText.visibility=View.INVISIBLE
         Log.i("eef", "TRIGGEREDDDDDDDDDD")
-        //insertIntoDatabase()
+
     }
 
     private fun playAgain() {

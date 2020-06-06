@@ -128,15 +128,15 @@
             android:layout_marginStart="164dp"
             android:layout_marginEnd="164dp"
             android:layout_marginBottom="128dp"
+            android:fontFamily="cursive"
             android:text="TextView"
+            android:textColor="#7B1FA2"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/gridLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="cursive"
-            android:textColor="#7B1FA2"
-            android:textSize="18sp"
-            android:textStyle="bold|italic"
 
             />
 
@@ -186,8 +186,85 @@
             app:layout_constraintBottom_toTopOf="@+id/gridLayout"
             app:layout_constraintEnd_toStartOf="@+id/turn_text"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/winner_text"
+            app:layout_constraintTop_toBottomOf="@+id/winner_text" />
+
+        <ImageView
+            android:id="@+id/x_image"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginBottom="57dp"
+            app:layout_constraintBottom_toTopOf="@+id/play_again"
+            app:layout_constraintEnd_toStartOf="@+id/x_win"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+            app:srcCompat="@drawable/x1" />
+
+        <TextView
+            android:id="@+id/x_win"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginBottom="57dp"
+            app:layout_constraintBottom_toTopOf="@+id/play_again"
+            app:layout_constraintEnd_toStartOf="@+id/o_image"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/x_image"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
+
+        <ImageView
+            android:id="@+id/o_image"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginBottom="57dp"
+            app:layout_constraintBottom_toTopOf="@+id/play_again"
+            app:layout_constraintEnd_toStartOf="@+id/o_win"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/x_win"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
             app:srcCompat="@drawable/o" />
+
+        <TextView
+            android:id="@+id/o_win"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginBottom="57dp"
+            app:layout_constraintBottom_toTopOf="@+id/play_again"
+            app:layout_constraintEnd_toStartOf="@+id/draw"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/o_image"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
+
+        <TextView
+            android:id="@+id/draw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:layout_marginBottom="57dp"
+            android:text="DRAW"
+            app:layout_constraintBottom_toTopOf="@+id/play_again"
+            app:layout_constraintEnd_toStartOf="@+id/draw_no"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/o_win"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/draw_no"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="57dp"
+            app:layout_constraintBottom_toTopOf="@+id/play_again"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/draw"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
