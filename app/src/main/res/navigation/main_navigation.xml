@@ -27,6 +27,7 @@
         tools:layout="@layout/get_name_fragment">
         <action
             android:id="@+id/action_getName_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/startFragment" />
     </fragment>
 </navigation>
