@@ -49,10 +49,15 @@ class GameFragment : Fragment() {
                 binding.turnImage.setImageResource(R.drawable.o)
             }
             if (increment >= 9) {
+                viewModel.draw.value=viewModel.draw.value?.plus(1)
                 gameFinished()
                 binding.winnerText.text = "ITS A DRAW"
+
             }
         })
+        viewModel.oWon.observe(viewLifecycleOwner, Observer { won->binding.oWin.text=won.toString() })
+        viewModel.xWon.observe(viewLifecycleOwner, Observer { won->binding.xWin.text=won.toString() })
+        viewModel.draw.observe(viewLifecycleOwner, Observer { draw->binding.drawNo.text=draw.toString() })
         return binding.root
     }
 

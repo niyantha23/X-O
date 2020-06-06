@@ -22,7 +22,9 @@ class GameViewModel() : ViewModel() {
     val _incre = MutableLiveData<Int>()
     val incre: LiveData<Int>
         get() = _incre
-
+    val xWon = MutableLiveData<Int>()
+    val oWon = MutableLiveData<Int>()
+    val draw = MutableLiveData<Int>()
     //0:X   1:O  2: empty
     var gameState = arrayOf<Int>(2, 2, 2, 2, 2, 2, 2, 2, 2)
     val winningPositions = arrayOf(
@@ -51,6 +53,9 @@ val gameOver:LiveData<Boolean>
         winner.value = ""
         _incre.value = 0
 
+xWon.value=0
+        oWon.value=0
+        draw.value=0
     }
 
 
@@ -75,9 +80,11 @@ val gameOver:LiveData<Boolean>
                     _gameActive.value = false
                     if (activePlayer == 0) {
                         winner.value = playerO
+                        oWon.value=oWon.value?.plus(1)
                     } else
                         if (activePlayer == 1) {
                             winner.value = playerX
+                            xWon.value=xWon.value?.plus(1)
                         }
                     Log.i("dd", winner.value + "WONNNNNNNN")
                     _gameOver.value = true
