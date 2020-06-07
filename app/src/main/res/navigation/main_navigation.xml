@@ -11,27 +11,31 @@
         android:label="StartFragment"
         tools:layout="@layout/start_fragment">
         <action
-            android:id="@+id/action_startFragment_to_gameFragment"
-            app:destination="@id/gameFragment"
+            android:id="@+id/action_startFragment_to_getName"
+            app:destination="@id/getName"
             app:popUpTo="@id/startFragment" />
         <action
-            android:id="@+id/action_startFragment_to_leaderBoardFragment"
-            app:destination="@id/leaderBoardFragment"
-            app:popUpTo="@id/startFragment" />
+            android:id="@+id/action_startFragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.xo.GameFragment"
         android:label="GameFragment"
-        tools:layout="@layout/game_fragment">
+        tools:layout="@layout/game_fragment" />
+    <fragment
+        android:id="@+id/getName"
+        android:name="com.example.xo.GetNameFragment"
+        android:label="GetName"
+        tools:layout="@layout/get_name_fragment">
         <action
-            android:id="@+id/action_gameFragment_to_leaderBoardFragment"
-            app:destination="@id/leaderBoardFragment"
+            android:id="@+id/action_getName_to_gameFragment"
+            app:destination="@id/gameFragment"
             app:popUpTo="@id/startFragment" />
     </fragment>
     <fragment
-        android:id="@+id/leaderBoardFragment"
-        android:name="com.example.xo.LeaderBoardFragment"
-        android:label="LeaderBoardFragment"
-        tools:layout="@layout/leader_board_fragment"/>
+        android:id="@+id/helpFragment"
+        android:name="com.example.xo.HelpFragment"
+        android:label="help_fragment"
+        tools:layout="@layout/help_fragment" />
 </navigation>

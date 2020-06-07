@@ -2,156 +2,288 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data>
 
+    <data>
         <variable
             name="gameViewModel"
             type="com.example.xo.GameViewModel" />
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".GameFragment">
 
-    <GridLayout
-        android:id="@+id/gridLayout"
-        android:layout_width="368dp"
-        android:layout_height="368dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/board"
-        android:columnCount="3"
-        android:rowCount="3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/water_color"
+        tools:context=".GameFragment">
 
-        <ImageView
-            android:id="@+id/i00"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:tag="0"
-            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
-            />
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="368dp"
+            android:layout_height="368dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/board"
+            android:columnCount="3"
+            android:rowCount="3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/i01"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="17dp"
-            android:tag="1"
-            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+            <ImageView
+                android:id="@+id/i00"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:contentDescription="@string/for_x_o"
+                android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+                android:tag="0" />
 
-            />
+            <ImageView
+                android:id="@+id/i01"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_marginStart="17dp"
+                android:contentDescription="@string/for_x_o"
+                android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+                android:tag="1" />
 
-        <ImageView
-            android:id="@+id/i02"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="12dp"
-            android:tag="2"
-        android:onClick="@{(view)->gameViewModel.dropIn(view)}"
-            />
+            <ImageView
+                android:id="@+id/i02"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_marginStart="12dp"
+                android:contentDescription="@string/for_x_o"
+                android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+                android:tag="2" />
 
-        <ImageView
-            android:id="@+id/i10"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
+            <ImageView
+                android:id="@+id/i10"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="13dp"
+                android:contentDescription="@string/for_x_o"
+                android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+                android:tag="3" />
+
+            <ImageView
+                android:id="@+id/i11"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="13dp"
+                android:contentDescription="@string/for_x_o"
+                android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+                android:tag="4" />
+
+            <ImageView
+                android:id="@+id/i12"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="13dp"
+                android:contentDescription="@string/for_x_o"
+                android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+                android:tag="5" />
+
+            <ImageView
+                android:id="@+id/i20"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/for_x_o"
+                android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+                android:tag="6" />
+
+            <ImageView
+                android:id="@+id/i21"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/for_x_o"
+                android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+                android:tag="7" />
+
+            <ImageView
+                android:id="@+id/i22"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/for_x_o"
+                android:onClick="@{(view)->gameViewModel.dropIn(view)}"
+                android:tag="8" />
+
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/winner_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="164dp"
+            android:layout_marginEnd="164dp"
+            android:layout_marginBottom="76dp"
+            android:fontFamily="cursive"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:textColor="#7B1FA2"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/play_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="164dp"
+            android:backgroundTint="#700E9A"
+            android:fontFamily="casual"
+            android:text="@string/playagain"
+            android:visibility="invisible"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
+
+        <TextView
+            android:id="@+id/turn_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="13dp"
-            android:tag="3"
-            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
-            />
+            android:layout_marginEnd="176dp"
+            android:layout_marginBottom="38dp"
+            android:fontFamily="cursive"
+            android:text="@string/s_turn"
+            android:textColor="#7B1FA2"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/turn_image"
+            app:layout_constraintTop_toBottomOf="@+id/winner_text" />
 
         <ImageView
-            android:id="@+id/i11"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="17dp"
+            android:id="@+id/turn_image"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="158dp"
             android:layout_marginTop="13dp"
-            android:tag="4"
-            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
-            />
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="38dp"
+            android:contentDescription="@string/x_o_image"
+            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+            app:layout_constraintEnd_toStartOf="@+id/turn_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/winner_text" />
 
         <ImageView
-            android:id="@+id/i12"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="13dp"
-            android:tag="5"
-            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
-            />
+            android:id="@+id/x_image"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="57dp"
+            android:contentDescription="@string/ximage"
+            app:layout_constraintBottom_toTopOf="@+id/play_again"
+            app:layout_constraintEnd_toStartOf="@+id/x_win"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+            app:srcCompat="@drawable/x1" />
+
+        <TextView
+            android:id="@+id/x_win"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="57dp"
+            android:fontFamily="@font/aclonica"
+            android:textColor="#700E9A"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/play_again"
+            app:layout_constraintEnd_toStartOf="@+id/o_image"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/x_image"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
         <ImageView
-            android:id="@+id/i20"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="16dp"
-            android:tag="6"
-            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
-            />
+            android:id="@+id/o_image"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="57dp"
+            android:contentDescription="@string/x_o_image"
+            app:layout_constraintBottom_toTopOf="@+id/play_again"
+            app:layout_constraintEnd_toStartOf="@+id/o_win"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/x_win"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+            app:srcCompat="@drawable/o" />
 
-        <ImageView
-            android:id="@+id/i21"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="17dp"
-            android:layout_marginTop="16dp"
-            android:tag="7"
-            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
-            />
+        <TextView
+            android:id="@+id/o_win"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="57dp"
+            android:fontFamily="@font/aclonica"
+            android:textColor="#700E9A"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/play_again"
+            app:layout_constraintEnd_toStartOf="@+id/draw"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/o_image"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
-        <ImageView
-            android:id="@+id/i22"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="16dp"
-            android:tag="8"
-            android:onClick="@{(view)->gameViewModel.dropIn(view)}"
-            />
+        <TextView
+            android:id="@+id/draw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="57dp"
+            android:fontFamily="casual"
+            android:text="@string/draw"
+            android:textColor="#400659"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@+id/play_again"
+            app:layout_constraintEnd_toStartOf="@+id/draw_no"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/o_win"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+            app:layout_constraintVertical_bias="0.6" />
 
+        <TextView
+            android:id="@+id/draw_no"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="57dp"
+            android:fontFamily="@font/aclonica"
+            android:textColor="#700E9A"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/play_again"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/draw"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
-    </GridLayout>
-
-    <TextView
-        android:id="@+id/winner_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="40dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="invisible"/>
-
-    <Button
-        android:id="@+id/play_again"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="164dp"
-        android:text="PlayAgain"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout"
-        android:visibility="invisible"/>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/water_color"
+        tools:context=".GetNameFragment">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="163dp"
+            android:layout_marginTop="116dp"
+            android:layout_marginEnd="163dp"
+            android:layout_marginBottom="596dp"
+            android:fontFamily="cursive"
+            android:text="@string/enter_player_names"
+            android:textColor="#230E55"
+            android:textSize="28sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.425"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="114dp"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="45dp"
+            android:contentDescription="@string/ximage"
+            android:src="@drawable/x1"
+            app:layout_constraintEnd_toStartOf="@+id/x_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/x_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="142dp"
+            android:fontFamily="cursive"
+            android:hint="@string/who_wants_to_play_as_x"
+            android:inputType="textCapWords"
+            android:textColor="#000000"
+            android:textColorHint="#6E2C8A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="114dp"
+            android:layout_marginTop="236dp"
+            android:layout_marginEnd="45dp"
+            android:contentDescription="@string/x_o_image"
+            android:src="@drawable/o"
+            app:layout_constraintEnd_toStartOf="@+id/x_name"
+            app:layout_constraintHorizontal_bias="0.784"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/o_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="236dp"
+            android:layout_marginEnd="142dp"
+            android:fontFamily="cursive"
+            android:hint="@string/who_wants_to_play_as_o"
+            android:inputType="textCapWords"
+            android:textColorHint="#6E2C8A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.209"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/start_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="163dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="163dp"
+            android:layout_marginBottom="157dp"
+            android:background="#B1A4B6"
+            android:backgroundTint="#700E9A"
+            android:fontFamily="casual"
+            android:text="@string/start_game"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/o_name"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
