@@ -14,7 +14,6 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -44,11 +43,6 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0-rc02'
     implementation 'androidx.navigation:navigation-ui-ktx:2.0.0-rc02'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
-    implementation 'androidx.room:room-runtime:2.2.5'
-    annotationProcessor 'androidx.room:room-compiler:2.2.5'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0"
-
 
 
     // KTX

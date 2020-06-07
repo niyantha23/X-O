@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">XO</string>
+    <string name="app_name">X-O</string>
+    <string name="rules">\n
+        1. The game is played on a grid that\'s 3 squares by 3 squares.\n\n
+        2. X O, Players take turns putting their marks in empty squares.\n\n
+        3. The first player to get 3 of their marks in a row (up, down, across, or diagonally) is the winner.\n\n
+        4. When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.</string>
+    <string name="It_a_draw">ITS A DRAW</string>
+    <string name="the_winner_is">\"The Winner is \"</string>
+    <string name="are_you_ready">Are you ready??</string>
+    <string name="tic_tac_toe">Tic-Tac-Toe</string>
+    <string name="play_game">Play Game</string>
+    <string name="or_as_we_call_it">Or as we call it</string>
+    <string name="x_o">X-O</string>
+    <string name="for_x_o">for X/O</string>
+    <string name="playagain">PlayAgain</string>
+    <string name="s_turn">\'s Turn</string>
+    <string name="x_o_image">x/o image</string>
+    <string name="ximage">ximage</string>
+    <string name="draw">DRAW</string>
+    <string name="enter_player_names">Enter Player Names</string>
+    <string name="who_wants_to_play_as_x">Who Wants To Play As X?</string>
+    <string name="who_wants_to_play_as_o">Who Wants To Play As O?</string>
+    <string name="start_game">Start Game</string>
+    <string name="how_to_play">How To Play</string>
+    <string name="help">Help</string>
 </resources>

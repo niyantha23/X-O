@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="gameViewModel"
             type="com.example.xo.GameViewModel" />
@@ -37,6 +36,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
+                android:contentDescription="@string/for_x_o"
                 android:onClick="@{(view)->gameViewModel.dropIn(view)}"
                 android:tag="0" />
 
@@ -45,18 +45,18 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:layout_marginLeft="17dp"
+                android:layout_marginStart="17dp"
+                android:contentDescription="@string/for_x_o"
                 android:onClick="@{(view)->gameViewModel.dropIn(view)}"
-                android:tag="1"
-
-                />
+                android:tag="1" />
 
             <ImageView
                 android:id="@+id/i02"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:contentDescription="@string/for_x_o"
                 android:onClick="@{(view)->gameViewModel.dropIn(view)}"
                 android:tag="2" />
 
@@ -66,6 +66,7 @@
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
                 android:layout_marginTop="13dp"
+                android:contentDescription="@string/for_x_o"
                 android:onClick="@{(view)->gameViewModel.dropIn(view)}"
                 android:tag="3" />
 
@@ -74,8 +75,9 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:layout_marginLeft="17dp"
+                android:layout_marginStart="17dp"
                 android:layout_marginTop="13dp"
+                android:contentDescription="@string/for_x_o"
                 android:onClick="@{(view)->gameViewModel.dropIn(view)}"
                 android:tag="4" />
 
@@ -84,8 +86,9 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="13dp"
+                android:contentDescription="@string/for_x_o"
                 android:onClick="@{(view)->gameViewModel.dropIn(view)}"
                 android:tag="5" />
 
@@ -95,6 +98,7 @@
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
                 android:layout_marginTop="16dp"
+                android:contentDescription="@string/for_x_o"
                 android:onClick="@{(view)->gameViewModel.dropIn(view)}"
                 android:tag="6" />
 
@@ -103,8 +107,9 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:layout_marginLeft="17dp"
+                android:layout_marginStart="17dp"
                 android:layout_marginTop="16dp"
+                android:contentDescription="@string/for_x_o"
                 android:onClick="@{(view)->gameViewModel.dropIn(view)}"
                 android:tag="7" />
 
@@ -113,11 +118,11 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="16dp"
+                android:contentDescription="@string/for_x_o"
                 android:onClick="@{(view)->gameViewModel.dropIn(view)}"
                 android:tag="8" />
-
 
         </GridLayout>
 
@@ -130,7 +135,6 @@
             android:layout_marginBottom="76dp"
             android:fontFamily="cursive"
             android:gravity="center|center_horizontal|center_vertical"
-            android:text="TextView"
             android:textColor="#7B1FA2"
             android:textSize="18sp"
             android:textStyle="bold|italic"
@@ -149,7 +153,7 @@
             android:layout_marginEnd="164dp"
             android:backgroundTint="#700E9A"
             android:fontFamily="casual"
-            android:text="PlayAgain"
+            android:text="@string/playagain"
             android:visibility="invisible"
             app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -165,7 +169,7 @@
             android:layout_marginEnd="176dp"
             android:layout_marginBottom="38dp"
             android:fontFamily="cursive"
-            android:text="'s Turn"
+            android:text="@string/s_turn"
             android:textColor="#7B1FA2"
             android:textSize="18sp"
             android:textStyle="bold|italic"
@@ -182,6 +186,7 @@
             android:layout_marginTop="13dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="38dp"
+            android:contentDescription="@string/x_o_image"
             app:layout_constraintBottom_toTopOf="@+id/gridLayout"
             app:layout_constraintEnd_toStartOf="@+id/turn_text"
             app:layout_constraintStart_toStartOf="parent"
@@ -194,6 +199,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="57dp"
+            android:contentDescription="@string/ximage"
             app:layout_constraintBottom_toTopOf="@+id/play_again"
             app:layout_constraintEnd_toStartOf="@+id/x_win"
             app:layout_constraintHorizontal_bias="0.5"
@@ -222,6 +228,7 @@
             android:layout_height="25dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="57dp"
+            android:contentDescription="@string/x_o_image"
             app:layout_constraintBottom_toTopOf="@+id/play_again"
             app:layout_constraintEnd_toStartOf="@+id/o_win"
             app:layout_constraintHorizontal_bias="0.5"
@@ -251,7 +258,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="57dp"
             android:fontFamily="casual"
-            android:text="DRAW"
+            android:text="@string/draw"
             android:textColor="#400659"
             android:textSize="16sp"
             android:textStyle="bold|italic"
@@ -277,7 +284,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/draw"
             app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
