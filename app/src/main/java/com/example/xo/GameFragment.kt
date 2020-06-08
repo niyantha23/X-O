@@ -29,7 +29,7 @@ class GameFragment : Fragment() {
         viewModel.incre.observe(viewLifecycleOwner, Observer { increment ->
             if (increment % 2 == 0) { binding.turnImage.setImageResource(R.drawable.x1) }
             else if (increment % 2 != 0) { binding.turnImage.setImageResource(R.drawable.o) }
-            if (increment >= 9 &&viewModel.check==1) {
+            if (increment >= 9) {
                 viewModel.draw.value = viewModel.draw.value?.plus(1)
                 if (viewModel._gameActive.value==false){
                     viewModel.draw.value = viewModel.draw.value?.minus(1)
