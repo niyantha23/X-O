@@ -76,4 +76,5 @@ class GameFragment : Fragment() {
         viewModel._gameActive.value = true
         viewModel.activePlayer = 0
     }
+
 }
