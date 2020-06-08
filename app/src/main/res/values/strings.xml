@@ -6,7 +6,7 @@
         3. The first player to get 3 of their marks in a row (up, down, across, or diagonally) is the winner.\n\n
         4. When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.</string>
     <string name="It_a_draw">ITS A DRAW</string>
-    <string name="the_winner_is">\"The Winner is \"</string>
+    <string name="the_winner_is">The Winner is </string>
     <string name="are_you_ready">Are you ready??</string>
     <string name="tic_tac_toe">Tic-Tac-Toe</string>
     <string name="play_game">Play Game</string>
@@ -24,4 +24,5 @@
     <string name="start_game">Start Game</string>
     <string name="how_to_play">How To Play</string>
     <string name="help">Help</string>
+    <string name="reset_board">Reset Board</string>
 </resources>

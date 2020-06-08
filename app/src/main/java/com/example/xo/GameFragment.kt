@@ -1,9 +1,7 @@
 package com.example.xo
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -49,7 +47,25 @@ class GameFragment : Fragment() {
         viewModel.draw.observe(
             viewLifecycleOwner,
             Observer { draw -> binding.drawNo.text = draw.toString() })
+        setHasOptionsMenu(true)
         return binding.root
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.reset_menu, menu) }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.reset-> {
+                playAgain()
+                viewModel.draw.value=0
+                viewModel.oWon.value=0
+                viewModel.xWon.value=0
+                return true
+            }
+            else
+            -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun gameFinished() {
