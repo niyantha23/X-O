@@ -1,9 +1,7 @@
 package com.example.xo
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -31,7 +29,7 @@ class GameFragment : Fragment() {
         viewModel.incre.observe(viewLifecycleOwner, Observer { increment ->
             if (increment % 2 == 0) { binding.turnImage.setImageResource(R.drawable.x1) }
             else if (increment % 2 != 0) { binding.turnImage.setImageResource(R.drawable.o) }
-            if (increment >= 9 &&viewModel.check==1) {
+            if (increment >= 9) {
                 viewModel.draw.value = viewModel.draw.value?.plus(1)
                 if (viewModel._gameActive.value==false){
                     viewModel.draw.value = viewModel.draw.value?.minus(1)
@@ -49,7 +47,25 @@ class GameFragment : Fragment() {
         viewModel.draw.observe(
             viewLifecycleOwner,
             Observer { draw -> binding.drawNo.text = draw.toString() })
+        setHasOptionsMenu(true)
         return binding.root
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.reset_menu, menu) }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.reset-> {
+                playAgain()
+                viewModel.draw.value=0
+                viewModel.oWon.value=0
+                viewModel.xWon.value=0
+                return true
+            }
+            else
+            -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun gameFinished() {
@@ -76,4 +92,5 @@ class GameFragment : Fragment() {
         viewModel._gameActive.value = true
         viewModel.activePlayer = 0
     }
+
 }

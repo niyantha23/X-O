@@ -1,12 +1,14 @@
 package com.example.xo
-
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import androidx.lifecycle.ViewModelProviders
+
 class MainActivity : AppCompatActivity() {
+    private lateinit var viewModel: GameViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
             window.statusBarColor = Color.TRANSPARENT
         }
         supportActionBar!!.title=""
+        viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
     }
 
     private fun setWindowFlag(bits: Int, on: Boolean) {
@@ -33,5 +36,10 @@ class MainActivity : AppCompatActivity() {
             winParams.flags = winParams.flags and bits.inv()
         }
         win.attributes = winParams
+    }
+
+    override fun onBackPressed() {
+        viewModelStore.clear()
+        super.onBackPressed()
     }
 }
